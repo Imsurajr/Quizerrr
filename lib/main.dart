@@ -29,47 +29,11 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   List<Icon> scoreTracker = [
-    // make notes on dart list
-    //this works because {List<Widget> children = const <Widget>[]} works for children and Icon is a widget
   ];
-  // List<String> questions = [
-  //  'There is no tomorrow',
-  //  'Earth is Flat',
-  //  'Starship can travel at light\'s speed',
-  // ];
-  //
-  // List<bool> answer = [
-  //   false,
-  //   false,
-  //   true,
-  // ];
-  //
-  // Questions q1 = Questions(s:'There is no tomorrow',q: false);
-  // print (q1.question),
-  // print (q1.questionNum)
-
-
-  //inheritance in dart is extends
-  // 19 jan 11 51 photo polymorfism @overide and super
-
-  // int questionNumber = 0;
-  //ye naya bnaya quiz brain mai
   void userAnswer ( bool userAnswer){
     bool correctAnswer = quizBrain.getQuestionText();
     setState(() {
       if (quizBrain.isFinished() == true) {
-        //- show an alert using rFlutter_alert,
-
-        //This is the code for the basic alert from the docs for rFlutter Alert:
-        //Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.").show();
-
-        //Modified for our purposes:
-        // Alert(
-        //   context: context,
-        //   title: 'Finished!',
-        //   desc: 'You\'ve reached the end of the quiz.',
-        // ).show();
-
         Alert(
           context: context,
           // style: alertStyle,
@@ -111,25 +75,14 @@ class _QuizState extends State<Quiz> {
           ));
         }
 
-        // scoreTracker.add(Icon(
-        //   Icons.check_circle,
-        //   color: Colors.green,
-        // ));
-
-        // print('For Question Number $questionNumber ');
-        // print('True Pressed');
-        // questionNumber += 1;
         quizBrain.crashCheck();
       }
     });
   }
   QuizBrain quizBrain = QuizBrain();
-//pehla QuizBrain datatype (datatype is QuizBrain naam ka class) quizBrain is variable name, third QuizBrain is constructor
-//   pehla is datatype, doosra is name, teesra is constructor
   @override
   Widget build(BuildContext context) {
     return Column(
-      // a column widget can accept a data in form of list that's why it can have children while scaffold or safe area cant
       children: <Widget>[
         Expanded(
           flex: 5,
@@ -175,24 +128,6 @@ class _QuizState extends State<Quiz> {
               ),
               child: Text('False'),
               onPressed: () {
-                // bool correctAnswer = quizBrain.getQuestionText();
-                // if (correctAnswer == false) {
-                //   print('Answer is correct');
-                // } else {
-                //   print('Answer is incorrect');
-                // }
-                // setState(() {
-                //   // scoreTracker.add(Icon(
-                //   //   Icons.cancel,
-                //   //   color: Colors.red,
-                //   // ));
-                //
-                //   // print('For Question Number $questionNumber ');
-                //   // print('False Pressed');
-                //   // questionNumber += 1;
-                //
-                //   quizBrain.crashCheck();
-                // });
                 userAnswer(false);
               },
             ),
@@ -200,13 +135,8 @@ class _QuizState extends State<Quiz> {
         ),
         Row(
           children: scoreTracker,
-          //this works because {List<Widget> children = const <Widget>[]} works for children and Icon is a widget
-
         )
       ],
     );
   }
 }
-// ElevatedButton( onPressed(){
-//
-// }, child: child),

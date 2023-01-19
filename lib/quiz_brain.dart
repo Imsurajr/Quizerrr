@@ -30,9 +30,6 @@ final List<Questions> _questionSource = [
       true),
 
 ];
-//19 1  6 8 photo a object will have this property and it would be able to perform this methods
-// 19 1 8 20 photo this. lgate hi it'll refer to object
-//   6 41 both ss are same
 
 void crashCheck ()
 {
@@ -41,10 +38,8 @@ void crashCheck ()
       _questionNumber++;
     }
   print('Question Number $_questionNumber ');
-  // print(_questionSource.length);
 }
 
-// to prevent it from making changes in code afterward do this _ in front of list to make it private
   String setQuestionText (){
     return _questionSource[_questionNumber].question;
   }
@@ -52,12 +47,8 @@ void crashCheck ()
     return _questionSource[_questionNumber].answer;
   }
 
-  //  Part A - Create a method called isFinished() here that checks to see if we have reached the last question. It should return (have an output) true if we've reached the last question and it should return false if we're not there yet.
-
   bool isFinished() {
     if (_questionNumber >= _questionSource.length - 1) {
-      // Use a print statement to check that isFinished is returning true when you are indeed at the end of the quiz and when a restart should happen.
-
       print('Now returning true');
       return true;
 
@@ -65,8 +56,6 @@ void crashCheck ()
       return false;
     }
   }
-
-  //Create a reset() method here that sets the questionNumber back to 0.
   void reset() {
     _questionNumber = 0;
   }
